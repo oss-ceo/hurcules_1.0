@@ -6,11 +6,11 @@
 <div class="row">
     <div class="col-12">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold text-primary mb-3">
-                <i class="fas fa-rocket me-3"></i>Welcome to Hurcules
+            <h1 class="display-4 fw-bold mb-3 glow-effect">
+                <i class="fas fa-skull-crossbones me-3"></i>Welcome to HURCULES
             </h1>
-            <p class="lead text-muted">
-                A modern web application ready for Google Cloud deployment
+            <p class="lead text-light">
+                A <span class="text-danger fw-bold">BADASS</span> web application ready for Google Cloud deployment
             </p>
         </div>
     </div>
@@ -22,10 +22,10 @@
         <div class="card h-100">
             <div class="card-body text-center">
                 <div class="mb-3">
-                    <i class="fas fa-cloud fa-3x text-primary"></i>
+                    <i class="fas fa-fire fa-3x text-danger"></i>
                 </div>
-                <h5 class="card-title">Cloud Ready</h5>
-                <p class="card-text">
+                <h5 class="card-title text-danger">Cloud Ready</h5>
+                <p class="card-text text-light">
                     Optimized for Google Cloud Platform with App Engine and Cloud Run support.
                 </p>
             </div>
@@ -36,11 +36,11 @@
         <div class="card h-100">
             <div class="card-body text-center">
                 <div class="mb-3">
-                    <i class="fas fa-mobile-alt fa-3x text-success"></i>
+                    <i class="fas fa-bolt fa-3x text-warning"></i>
                 </div>
-                <h5 class="card-title">Responsive Design</h5>
-                <p class="card-text">
-                    Modern, mobile-first design that works perfectly on all devices.
+                <h5 class="card-title text-warning">Lightning Fast</h5>
+                <p class="card-text text-light">
+                    Modern, responsive design that works perfectly on all devices.
                 </p>
             </div>
         </div>
@@ -50,10 +50,10 @@
         <div class="card h-100">
             <div class="card-body text-center">
                 <div class="mb-3">
-                    <i class="fas fa-shield-alt fa-3x text-warning"></i>
+                    <i class="fas fa-shield-alt fa-3x text-danger"></i>
                 </div>
-                <h5 class="card-title">Secure & Scalable</h5>
-                <p class="card-text">
+                <h5 class="card-title text-danger">Secure & Scalable</h5>
+                <p class="card-text text-light">
                     Built with security best practices and designed for scalability.
                 </p>
             </div>
@@ -64,7 +64,7 @@
 <div class="row mt-5">
     <div class="col-12">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-cogs me-2"></i>API Endpoints
                 </h5>
@@ -72,16 +72,16 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h6>Health Check</h6>
-                        <code class="d-block p-2 bg-light rounded">GET /api/health</code>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="testHealth()">
+                        <h6 class="text-danger"><i class="fas fa-heartbeat me-2"></i>Health Check</h6>
+                        <code class="d-block p-3 mb-3">GET /api/health</code>
+                        <button class="btn btn-outline-danger btn-sm" onclick="testHealth()">
                             <i class="fas fa-play me-1"></i>Test
                         </button>
                     </div>
                     <div class="col-md-6">
-                        <h6>Data Endpoint</h6>
-                        <code class="d-block p-2 bg-light rounded">GET /api/data</code>
-                        <button class="btn btn-sm btn-outline-success mt-2" onclick="testData()">
+                        <h6 class="text-warning"><i class="fas fa-database me-2"></i>Data Endpoint</h6>
+                        <code class="d-block p-3 mb-3">GET /api/data</code>
+                        <button class="btn btn-outline-warning btn-sm" onclick="testData()">
                             <i class="fas fa-play me-1"></i>Test
                         </button>
                     </div>
@@ -95,7 +95,7 @@
 <div class="row mt-4">
     <div class="col-12">
         <div class="card">
-            <div class="card-header bg-info text-white">
+            <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-info-circle me-2"></i>Deployment Information
                 </h5>
@@ -103,20 +103,65 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h6>Google App Engine</h6>
+                        <h6 class="text-danger"><i class="fas fa-cloud me-2"></i>Google App Engine</h6>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>app.yaml configured</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Automatic scaling</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Health checks enabled</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>app.yaml configured</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>Automatic scaling</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>Health checks enabled</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h6>Docker Support</h6>
+                        <h6 class="text-warning"><i class="fas fa-docker me-2"></i>Docker Support</h6>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dockerfile ready</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Cloud Run compatible</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Multi-stage builds</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>Dockerfile ready</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>Cloud Run compatible</li>
+                            <li class="text-light"><i class="fas fa-check text-success me-2"></i>Multi-stage builds</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Badass Stats Section -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-line me-2"></i>System Stats
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="border border-danger rounded p-3">
+                            <i class="fas fa-server fa-2x text-danger mb-2"></i>
+                            <h4 class="text-danger">99.9%</h4>
+                            <p class="mb-0">Uptime</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border border-warning rounded p-3">
+                            <i class="fas fa-tachometer-alt fa-2x text-warning mb-2"></i>
+                            <h4 class="text-warning">0.1s</h4>
+                            <p class="mb-0">Response Time</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border border-danger rounded p-3">
+                            <i class="fas fa-users fa-2x text-danger mb-2"></i>
+                            <h4 class="text-danger">∞</h4>
+                            <p class="mb-0">Scalability</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border border-warning rounded p-3">
+                            <i class="fas fa-shield-alt fa-2x text-warning mb-2"></i>
+                            <h4 class="text-warning">100%</h4>
+                            <p class="mb-0">Security</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,7 +197,7 @@ function showResult(endpoint, data, type) {
     const alertDiv = document.createElement('div');
     alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
     alertDiv.innerHTML = `
-        <strong>${endpoint} Response:</strong>
+        <strong><i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>${endpoint} Response:</strong>
         <pre class="mt-2 mb-0">${JSON.stringify(data, null, 2)}</pre>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     `;
@@ -165,5 +210,35 @@ function showResult(endpoint, data, type) {
         }
     }, 5000);
 }
+
+// Add some badass effects
+document.addEventListener('DOMContentLoaded', function() {
+    // Add glow effect to cards on hover
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('glow-effect');
+        });
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('glow-effect');
+        });
+    });
+    
+    // Add typing effect to title
+    const title = document.querySelector('.display-4');
+    if (title) {
+        const text = title.textContent;
+        title.textContent = '';
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                title.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        setTimeout(typeWriter, 500);
+    }
+});
 </script>
 {% endblock %} 
