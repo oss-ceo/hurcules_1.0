@@ -1,67 +1,257 @@
-# hurcules_1.0
-CyberMap Explorer is a powerful web application that visually displays a broad range of cyber domain devices and critical infrastructure across the United States on an interactive map. Integrating data from top open source intelligence and mapping services, it offers real-time situational awareness for researchers and cybersecurity professionals.
+# Hurcules Web Application
 
-# CyberMap Explorer
+A modern, scalable web application built with Flask and optimized for Google Cloud Platform deployment.
 
-## Overview
+## 🚀 Features
 
-CyberMap Explorer is a comprehensive web application designed to visually display a wide spectrum of cyber domain devices and critical infrastructure across the United States on an interactive map. Harnessing data from leading open-source intelligence and mapping sources, the platform enables real-time situational awareness for researchers, analysts, and security professionals alike.
+- **Modern UI/UX**: Responsive design with Bootstrap 5 and custom animations
+- **Cloud Ready**: Optimized for Google Cloud Platform (App Engine, Cloud Run)
+- **API Endpoints**: RESTful API with health checks and data endpoints
+- **Docker Support**: Containerized deployment with multi-stage builds
+- **CI/CD Ready**: Google Cloud Build configuration for automated deployment
+- **Testing**: Unit tests included
+- **Security**: Environment-based configuration and security best practices
 
-## Key Features
+## 📁 Project Structure
 
-### Interactive Mapping
-Seamlessly visualize cyber assets (servers, IoT, ICS/SCADA, etc.) and critical infrastructure such as energy grids, water systems, and transportation hubs overlaid on a detailed map interface.
+```
+hurcules_1.0/
+├── app.py                 # Main Flask application
+├── requirements.txt       # Python dependencies
+├── app.yaml              # Google App Engine configuration
+├── Dockerfile            # Docker container configuration
+├── cloudbuild.yaml       # Google Cloud Build CI/CD
+├── deploy.sh             # Deployment script
+├── env.example           # Environment variables template
+├── .dockerignore         # Docker ignore file
+├── templates/            # HTML templates
+│   ├── base.html         # Base template
+│   ├── index.html        # Home page
+│   ├── 404.html          # 404 error page
+│   └── 500.html          # 500 error page
+├── static/               # Static files
+│   ├── css/
+│   │   └── main.css      # Custom styles
+│   └── js/
+│       └── app.js        # Custom JavaScript
+└── tests/                # Test files
+    └── test_app.py       # Unit tests
+```
 
-### Data Aggregation
-Integrates and displays real-time and historical data from multiple sources:
+## 🛠️ Local Development
 
-- **Google Maps, Wikimapia**: Base maps and infrastructure data
-- **Shodan, Censys**: Networked devices, services, and detected vulnerabilities
-- **Hunter.io**: Email address exposure and domain relationships
-- **Wi-Fi War Driving**: Visualization of discovered public and private wireless networks
-- **Additional APIs**: Easily extensible to other public or free data sources
+### Prerequisites
 
-### Custom Filtering
-Users can filter by device type, vulnerability status, infrastructure category, Wi-Fi strength, and more.
+- Python 3.9+
+- pip
+- Git
 
-### Geospatial Analytics
-Interactive heatmaps and clustering to identify hotspots, anomalies, and dense regions of cyber-relevant activity.
+### Setup
 
-### Critical Infrastructure Overlays
-Cross-reference cyber assets with open-source records of essential facilities and public safety points.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd hurcules_1.0
+   ```
 
-### Open Source & Extensible
-Built with modularity in mind—developers can add new APIs and custom visualizations.
+2. **Create and activate virtual environment**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-## Use Cases
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- Security researchers mapping exposure of critical infrastructure
-- Cyber threat intelligence analysts tracking vulnerable devices
-- Journalists and academics studying correlations between digital and physical infrastructure
-- Hobbyists interested in Wi-Fi war driving, open internet mapping, and infosec exploration
+4. **Set up environment variables**
+   ```bash
+   cp env.example .env
+   # Edit .env with your configuration
+   ```
 
-## Tech Stack
+5. **Run the application**
+   ```bash
+   python app.py
+   ```
 
-- **Frontend**: React (Leaflet.js or Mapbox GL for mapping)
-- **Backend**: Node.js/Python for API integration and aggregation
-- **Data Sources**: Google Maps, Wikimapia, Shodan, Censys, Hunter.io, public federal infrastructure databases, and more
-- **Deployment**: Docker, AWS/Azure/GCP ready
+6. **Access the application**
+   - Open your browser and go to `http://localhost:8080`
+   - Health check: `http://localhost:8080/api/health`
+   - Data endpoint: `http://localhost:8080/api/data`
 
-## Getting Started
+### Running Tests
 
-1. Fork and clone the repository
-2. Set up API keys for the supported services
-3. Run locally with `docker-compose up` or follow deployment instructions
-4. Access `http://localhost:3000` to begin exploring
+```bash
+python -m pytest tests/
+# or
+python tests/test_app.py
+```
 
-## Ethics & Legal Note
+## ☁️ Google Cloud Deployment
 
-This project aggregates only lawful, publicly accessible data and is intended exclusively for research, education, and defense of networks. Use responsibly.
+### Option 1: Google App Engine (Recommended)
 
-## Contributing
+1. **Install Google Cloud SDK**
+   ```bash
+   # Download and install from: https://cloud.google.com/sdk/docs/install
+   ```
 
-Pull requests are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and to suggest new integrations or features.
+2. **Authenticate and set project**
+   ```bash
+   gcloud auth login
+   gcloud config set project YOUR_PROJECT_ID
+   ```
 
-## License
+3. **Deploy using the script**
+   ```bash
+   chmod +x deploy.sh
+   ./deploy.sh
+   ```
 
-Open source under the MIT License.
+4. **Or deploy manually**
+   ```bash
+   gcloud app deploy app.yaml
+   ```
+
+### Option 2: Google Cloud Run
+
+1. **Build and push Docker image**
+   ```bash
+   docker build -t gcr.io/YOUR_PROJECT_ID/hurcules-web-app .
+   docker push gcr.io/YOUR_PROJECT_ID/hurcules-web-app
+   ```
+
+2. **Deploy to Cloud Run**
+   ```bash
+   gcloud run deploy hurcules-web-app \
+     --image gcr.io/YOUR_PROJECT_ID/hurcules-web-app \
+     --platform managed \
+     --region us-central1 \
+     --allow-unauthenticated \
+     --port 8080
+   ```
+
+### Option 3: Automated CI/CD with Cloud Build
+
+1. **Enable Cloud Build API**
+   ```bash
+   gcloud services enable cloudbuild.googleapis.com
+   ```
+
+2. **Set up Cloud Build trigger** (via Google Cloud Console or gcloud CLI)
+
+3. **Push to trigger deployment**
+   ```bash
+   git push origin main
+   ```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `FLASK_ENV` | Flask environment | `development` |
+| `SECRET_KEY` | Flask secret key | `dev-secret-key` |
+| `PORT` | Application port | `8080` |
+
+### App Engine Configuration
+
+The `app.yaml` file configures:
+- Python 3.9 runtime
+- Automatic scaling (1-10 instances)
+- Health checks
+- Static file serving
+- Environment variables
+
+### Docker Configuration
+
+The `Dockerfile` includes:
+- Multi-stage build optimization
+- Non-root user for security
+- Health checks
+- Gunicorn WSGI server
+
+## 📊 API Endpoints
+
+### Health Check
+```
+GET /api/health
+```
+Returns application health status.
+
+**Response:**
+```json
+{
+  "status": "healthy",
+  "service": "hurcules-web-app",
+  "version": "1.0.0"
+}
+```
+
+### Data Endpoint
+```
+GET /api/data
+```
+Returns sample application data.
+
+**Response:**
+```json
+{
+  "message": "Hello from Hurcules Web App!",
+  "timestamp": "2024-01-01T00:00:00Z"
+}
+```
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+python -m pytest tests/
+```
+
+Test coverage includes:
+- Page loading
+- API endpoints
+- Error handling
+- Static file serving
+
+## 🔒 Security Considerations
+
+- Environment-based configuration
+- Secure secret management
+- Non-root Docker containers
+- HTTPS enforcement in production
+- Input validation and sanitization
+
+## 📈 Monitoring and Logging
+
+- Google Cloud Logging integration
+- Health check endpoints
+- Application metrics
+- Error tracking
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Check the [Google Cloud documentation](https://cloud.google.com/docs)
+- Review Flask documentation
+- Open an issue in this repository
+
+---
+
+**Built with ❤️ for Google Cloud Platform**

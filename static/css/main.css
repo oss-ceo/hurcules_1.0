@@ -1,0 +1,379 @@
+/* Badass Dark Mode Styles for Hurcules Web App */
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@keyframes glow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(220, 20, 60, 0.6);
+        text-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.pulse-effect {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.slide-in {
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Custom button styles */
+.btn-custom {
+    background: linear-gradient(45deg, #dc143c, #8b0000);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-custom:hover::before {
+    left: 100%;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(45deg, #8b0000, #dc143c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5);
+}
+
+/* Card enhancements */
+.feature-card {
+    transition: all 0.4s ease;
+    border: 1px solid #333;
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+.feature-card:hover {
+    border-color: #dc143c;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(220, 20, 60, 0.3),
+        0 0 30px rgba(220, 20, 60, 0.2);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Loading spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top: 4px solid #dc143c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #dc143c, #8b0000);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #8b0000, #dc143c);
+}
+
+/* Text effects */
+.text-glow {
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
+
+.text-danger {
+    color: #dc143c !important;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+/* Border effects */
+.border-danger {
+    border-color: #dc143c !important;
+}
+
+.border-warning {
+    border-color: #ffc107 !important;
+}
+
+/* Background effects */
+.bg-dark-custom {
+    background: linear-gradient(135deg, #000 0%, #1a0000 100%);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    .main-content {
+        background: rgba(26, 26, 26, 0.98);
+    }
+    
+    .card {
+        background: linear-gradient(145deg, #1a1a1a, #222);
+    }
+}
+
+/* Hover effects for interactive elements */
+.nav-link:hover {
+    color: #dc143c !important;
+    transform: translateY(-2px);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+}
+
+/* Code block styling */
+pre {
+    background: #000;
+    color: #dc143c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+code {
+    background: #000;
+    color: #dc143c;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Alert styling */
+.alert {
+    border: none;
+    border-radius: 10px;
+    background: #1a1a1a;
+    border-left: 4px solid #dc143c;
+    color: #fff;
+}
+
+.alert-success {
+    border-left-color: #28a745;
+}
+
+.alert-danger {
+    border-left-color: #dc3545;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+/* Badge styling */
+.badge {
+    background: linear-gradient(45deg, #dc143c, #8b0000);
+    color: white;
+    border: none;
+}
+
+/* Progress bar styling */
+.progress {
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(45deg, #dc143c, #8b0000);
+    border-radius: 10px;
+}
+
+/* Modal styling */
+.modal-content {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #333;
+    background: linear-gradient(90deg, #dc143c, #8b0000);
+}
+
+.modal-footer {
+    border-top: 1px solid #333;
+}
+
+/* Tooltip styling */
+.tooltip-inner {
+    background: #000;
+    color: #dc143c;
+    border: 1px solid #dc143c;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: #dc143c;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background: #dc143c;
+    color: #fff;
+}
+
+/* Form styling */
+.form-control {
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.form-control:focus {
+    background: #444;
+    border-color: #dc143c;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(220, 20, 60, 0.25);
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+/* Table styling */
+.table {
+    color: #fff;
+}
+
+.table-dark {
+    background: #1a1a1a;
+}
+
+.table-dark th,
+.table-dark td {
+    border-color: #333;
+}
+
+/* List group styling */
+.list-group-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.list-group-item:hover {
+    background: #222;
+    border-color: #dc143c;
+}
+
+/* Ensure list items in cards are readable */
+.card ul li {
+    color: #ffffff !important;
+}
+
+.card ul li.text-light {
+    color: #f8f9fa !important;
+} 
